@@ -1,0 +1,6 @@
+{
+  "name": "coastal-cleanup-day",
+  "short_name": "coastal-cleanup-day",
+  "start_url": "/",
+  "display": "standalone"
+}

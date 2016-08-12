@@ -1,0 +1,87 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-map-markerclusterer/google-map-markerclusterer.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="ccd-map">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      #map,
+      #map-container {
+        width:100%;
+        height:80vh;
+       }
+       #minimumClusterSize {
+         width:50px;
+       }
+        google-map {
+          display: block;
+          height: 100%;
+        }
+    </style>
+
+    <iron-request id="xhr"></iron-request>
+
+    <div id="map-container">
+      <google-map latitude="37.632711" longitude="-125.572511" map="{{map}}" id="mapelement" zoom="6" api-key="AIzaSyDvU4e-mutCkm5V77UnBU4bO5ptYj-bbGw"></google-map>
+
+      <google-map-markerclusterer map="{{map}}" max-zoom="{{maxZoom}}" minimum-cluster-size="{{minimumClusterSize}}" grid-size="{{gridSize}}" markers="{{markersToDisplay}}" average-center="{{averageCenter}}" styles="{{styles}}"><content id="custom_cluster_icon"></content></google-map-markerclusterer>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+        is: 'ccd-map',
+
+        properties: {
+            markers: {
+                type: Array,
+                value: function() {return [];}
+                // observer: 'markersChanged'
+            },
+            markersToDisplay : {
+                type:Array,
+                value: function() {
+                    // var data = this.$.xhr.send({
+                    //     url: 'http://api.coastal.ca.gov/ccd/v1/locations'
+                    // });
+                    // return data;
+
+                    var data = [{"id":1,"county_region":"Alameda","site_name":"Alameda County - East Bay Regional Park District","address":null,"latitude":37.745238,"longitude":-122.145658,"website":"http://www.ebparks.org","how_to_register":null,"start_time":"8:30AM","end_time":"12:00PM","What_to_bring":null,"special_instructions":null,"cleanup_date":"2016-09-17T07:00:00.000Z","organization":"East Bay Regional Park District","organizer":"Jeremy Saito","phone":"(510) 544-2515","email":"volunteers@ebparks.org"},{"id":2,"county_region":"Alameda","site_name":"Altamont Creek & Arroyo Las Positas Bluebell Dr. -  Livermore","address":"Bluebell Dr","latitude":37.718472,"longitude":-121.74315,"website":"http://www.trivalleycreeks.org/spot-details/altamont-creek-arroyo-las-positas-at-bluebell","how_to_register":"Contact Lynna Allen at http://www.trivalleycreeks.org/contact-us/site-coordinator-lynna-allen or call (925) 960-8143 to pre-register. Visit http://www.trivalleycreeks.org/events/creeks-to-bay-cleanup for more information. ","start_time":"8:00AM","end_time":"12:00PM","What_to_bring":null,"special_instructions":"30 spots available beginning August 11th.","cleanup_date":"2016-09-17T07:00:00.000Z","organization":"City of Livermore","organizer":"Lynna Allen","phone":"(925) 960-8143","email":"lallen@cityoflivermore.net"},{"id":3,"county_region":"Alameda","site_name":"Arroyo Las Positas Heather Ln. -  Livermore","address":"Heather Ln","latitude":37.713514,"longitude":-121.734008,"website":"http://www.trivalleycreeks.org/spot-details/arroyo-las-positas-at-heather-lane","how_to_register":"Visit http://www.trivalleycreeks.org/events/creeks-to-bay-cleanup for more information. ","start_time":"8:00AM","end_time":"12:00PM","What_to_bring":null,"special_instructions":"N/A","cleanup_date":"2016-09-17T07:00:00.000Z","organization":"City of Livermore","organizer":"Lynna Allen","phone":"(925) 960-8143","email":"lallen@cityoflivermore.net"},{"id":4,"county_region":"Alameda","site_name":"Arroyo Las Positas Livermore Ave. - Livermore","address":"N Livermore Ave Bridge","latitude":37.69754,"longitude":-121.773448,"website":"http://www.trivalleycreeks.org/spot-details/arroyo-las-positas-at-north-livermore-avenue","how_to_register":"Visit http://www.trivalleycreeks.org/events/creeks-to-bay-cleanup for more information. ","start_time":"8:00AM","end_time":"12:00PM","What_to_bring":null,"special_instructions":"N/A","cleanup_date":"2016-09-17T07:00:00.000Z","organization":"City of Livermore","organizer":"Lynna Allen","phone":"(925) 960-8143","email":"lallen@cityoflivermore.net"}];
+
+                    return data;
+                }
+            },
+            map: {
+                type:Object,
+                value:null
+            },
+            markersChanged: function markersChanged(newValue,oldValue) {
+                this.markersToDisplay = newValue;
+            },
+            maxZoom : {
+              type:Number,
+              value:null,
+            },
+            minimumClusterSize: {
+              type:Number,
+              value:2
+            },
+            gridSize: {
+              type:Number,
+              value:60
+            //   observer:'_changeGridSize'
+            },
+            averageCenter: {
+              type: Boolean,
+              value:false
+           }
+        }
+
+    });
+  </script>
+</dom-module>
