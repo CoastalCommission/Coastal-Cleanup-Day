@@ -32,10 +32,10 @@
         };
 
         var map = document.querySelector('#map');
-        map.addEventListener('google-map-ready', function(e) {
-            this.markers = getMarkers();
-            console.log(this.markers);
-        });
+        // map.addEventListener('google-map-ready', function(e) {
+        //     this.markers = getMarkers();
+        //     console.log(this.markers);
+        // });
     </script>
 
     <div class="container grey-background">
@@ -70,16 +70,22 @@
 
   <script>
     Polymer({
+        is: 'ccd-app',
 
-      is: 'ccd-app',
-
-      properties: {
-        prop1: {
-          type: String,
-          value: 'ccd-app',
+        properties: {
+            prop1: {
+                type: String,
+                value: 'ccd-app',
+            }
         },
-      },
 
+        map: document.querySelector('#map'),
+        mapReady: (function() {
+            this.map.addEventListener('google-map-ready', function(e) {
+                console.log('ready');
+                return true;
+            });
+        })
     });
   </script>
 </dom-module>
