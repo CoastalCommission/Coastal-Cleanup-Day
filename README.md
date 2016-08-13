@@ -1,15 +1,20 @@
 # \<coastal-cleanup-day\>
 
+![coastal-cleanup-day](https://raw.github.com/coastalcommission/coastal-cleanup-day/images/screenshot-1.png)
+
+![coastal-cleanup-day](https://raw.github.com/coastalcommission/coastal-cleanup-day/images/screenshot-2.png)
 
 
 ## Install the Polymer-CLI
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed.
+Then run `bower install`
+and `polymer serve --open` to serve your application locally.
 
 ## Viewing Your Application
 
 ```
-$ polymer serve
+$ polymer serve --open
 ```
 
 ## Building Your Application
