@@ -1,8 +1,8 @@
 # \<coastal-cleanup-day\>
 
-![coastal-cleanup-day](https://raw.github.com/coastalcommission/coastal-cleanup-day/images/screenshot-1.png)
+![coastal-cleanup-day](https://github.com/CoastalCommission/Coastal-Cleanup-Day/blob/master/images/screenshot-1.png?raw=true)
 
-![coastal-cleanup-day](https://raw.github.com/coastalcommission/coastal-cleanup-day/images/screenshot-2.png)
+![coastal-cleanup-day](https://github.com/CoastalCommission/Coastal-Cleanup-Day/blob/master/images/screenshot-2.png?raw=true)
 
 
 ## Install the Polymer-CLI
